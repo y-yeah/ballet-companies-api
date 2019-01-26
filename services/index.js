@@ -3,7 +3,6 @@ const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
 // The data below is mocked.
 const config = require("../config");
-const knex = require("knex")(config.db);
 const db = require("./db")(config.db);
 
 // The schema should model the full data object available.
