@@ -1,67 +1,11 @@
-/**
- ********************************DEPENDENCIES********************************
- ****************************************************************************
- */
-
-/*
-Instead of hard-coding configs for your app whenever you need them, I think
-its polite to have them all in one place. Think of config.js as the global
-control panel for your app.
-*/
 const config = require("./config.js");
-
-/*
-Database and other external 'services'. In general, when interfacing
-with an external API it can be helpful to separate your code into
-isolated modules that have a single responsibility.
-
-In this case, I've made a database 'service', which will contain bundles
-of handy functions for interacting with our database. There's also a
-'logger' service, that just formats the logs in a way that makes them
-easier to debug.
-
-Notice that any configs required by the services are explicitly injected
-here. In principle, you could cut out any of these services and paste it
-into another project, and assuming your business logic is pretty similar,
-all you would have to change is the injected config.
-*/
 const services = require("./services")(config);
-
-/*
-Routes for the server. Note that these are explicitly injected the
-initialized 'services', including the database methods and logger.
-We use this kind of 'dependency injection' to prevent arbitrarily
-'require'-ing code everywhere. You'll appreciate this when writing tests
-in this repo. Another benefit, if you use dependency injection its much
-harder to end up with circular dependencies =)
-*/
 const apiRouter = require("./routes/api")(services);
-
-const morgan = require("morgan"); // a popular library for logging your requests
-
-const bodyParser = require("body-parser"); // a middleware plugin to enable express to parse JSON
-
-// and of course, an express server =)
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const express = require("express");
 
 const app = express();
-
-/**
- ********************************SERVER SETUP********************************
- ****************************************************************************
- */
-
-/*
-This consists mostly of adding middleware and starting the server. Middleware,
-in the context of express, is a collective term to describe functions that run
-to handle a request.
-
-What we're doing below is setting up the middleware 'pipeline'. All requests that
-hit this server will run through the following steps, in the numbered order.
-
-If this is at all confusing to you, take 15 mins and read:
-https://www.safaribooksonline.com/blog/2014/03/10/express-js-middleware-demystified/
-*/
 
 // 1. log every request when it comes in
 app.use(morgan("dev"));
