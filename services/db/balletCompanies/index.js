@@ -22,7 +22,7 @@ class BalletCompany {
 module.exports = (knex) => {
   return {
     create: require("./create")(knex, BalletCompany),
-    list: require("./list")(knex, BalletCompany),
-    get: require("./get")(knex, BalletCompany),
+    selectAll: require("./selectAll")(knex, BalletCompany),
+    // list: require("./list")(knex, BalletCompany),
   };
 };
