@@ -1,1 +1,3 @@
-# cc7-project.my-own-api
+# Ballet companies API
+
+This was created during my time as a student at Code Chrysalis.
