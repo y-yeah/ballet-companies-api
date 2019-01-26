@@ -1,5 +1,9 @@
 module.exports = (knex, BalletCompanies) => {
-  return (params) => {
-    return knex("balletCompanies").select();
+  return () => {
+    return knex("balletCompanies")
+      .select()
+      .catch((err) => {
+        throw err;
+      });
   };
 };

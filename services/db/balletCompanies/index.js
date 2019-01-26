@@ -8,7 +8,15 @@ class BalletCompany {
     this.country = dbBalletCompany.country;
     this.city = dbBalletCompany.city;
     // TODO: innerJoin with dbDancers
-    // this.dancers = dbBalletCompany.dancers;
+    this.dancers = [
+      {
+        firstName: "",
+        lastName: "",
+        rank: "",
+        nationality: "",
+        gender: "",
+      },
+    ];
   }
   //   serialize() {
   //     return {
@@ -21,7 +29,7 @@ class BalletCompany {
 
 module.exports = (knex) => {
   return {
-    create: require("./create")(knex, BalletCompany),
+    add: require("./add")(knex, BalletCompany),
     selectAll: require("./selectAll")(knex, BalletCompany),
     // list: require("./list")(knex, BalletCompany),
   };
