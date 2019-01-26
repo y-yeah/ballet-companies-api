@@ -1,13 +1,13 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("dancers", (t) => {
     t.increments().index();
-    t.string("firstName", 20)
+    t.string("first_name", 20)
       .notNullable()
       .index();
-    t.string("lastName", 20)
+    t.string("last_name", 20)
       .notNullable()
       .index();
-    t.string("companyName", 40)
+    t.string("company_name", 40)
       .notNullable()
       .index()
       .unsigned();

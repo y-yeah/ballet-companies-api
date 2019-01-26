@@ -15,9 +15,9 @@ module.exports = (knex, Dancer) => {
 
     return knex("dancers")
       .insert({
-        firstName: params.firstName,
-        lastName: params.lastName,
-        companyName: params.companyName,
+        first_name: params.firstName,
+        last_name: params.lastName,
+        company_name: params.companyName,
         gender: params.gender,
         nationality: params.nationality,
       })

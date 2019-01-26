@@ -1,8 +1,9 @@
 class Dancer {
   constructor(dbDancers) {
     this.id = dbDancers.id;
-    this.name = dbDancers.name;
-    this.companyName = dbDancers.companyName;
+    this.firstName = dbDancers.first_name;
+    this.lastName = dbDancers.last_name;
+    this.companyName = dbDancers.company_name;
     // this.company_id = dbDancers.company_name;
     this.nationality = dbDancers.nationality;
     this.gender = dbDancers.gender;
