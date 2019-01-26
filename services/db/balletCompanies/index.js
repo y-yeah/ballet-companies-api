@@ -8,7 +8,7 @@ class BalletCompany {
     this.country = dbBalletCompany.country;
     this.city = dbBalletCompany.city;
     // TODO: innerJoin with dbDancers
-    this.dancers = dbBalletCompany.dancers;
+    // this.dancers = dbBalletCompany.dancers;
   }
   //   serialize() {
   //     return {
