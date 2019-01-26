@@ -1,6 +1,6 @@
-module.exports = (knex, BalletCompany) => {
+module.exports = (knex, Dancer) => {
   return () => {
-    return knex("balletCompanies")
+    return knex("dancers")
       .select()
       .catch((err) => {
         throw err;

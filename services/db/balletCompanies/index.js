@@ -1,5 +1,6 @@
 // const moment = require("moment");
-// const dbDancers = require("../dancers");
+// const config = require("../../../config");
+// const db = require("..")(config.db);
 
 class BalletCompany {
   constructor(dbBalletCompany) {
@@ -7,16 +8,9 @@ class BalletCompany {
     this.name = dbBalletCompany.name;
     this.country = dbBalletCompany.country;
     this.city = dbBalletCompany.city;
-    // TODO: innerJoin with dbDancers
-    this.dancers = [
-      {
-        firstName: "",
-        lastName: "",
-        rank: "",
-        nationality: "",
-        gender: "",
-      },
-    ];
+    // TODO: only dancers in this company
+    // this.dancers = dbDancers.selectByCompany(this.name);
+    // this.dancers = db.dancers.selectAll();
   }
   //   serialize() {
   //     return {
@@ -29,8 +23,8 @@ class BalletCompany {
 
 module.exports = (knex) => {
   return {
-    add: require("./add")(knex, BalletCompany),
     selectAll: require("./selectAll")(knex, BalletCompany),
+    add: require("./add")(knex, BalletCompany),
     // list: require("./list")(knex, BalletCompany),
   };
 };
