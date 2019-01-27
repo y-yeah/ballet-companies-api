@@ -9,10 +9,10 @@
 
 ## Table of Contents
 
-- [**0. Introduction**](#introduction)
-- [**1. Installation**](#installation-for-development)
-- [**2. Features**](#features)
-- [**3. Contribution**](#contribution)
+- [**0. Introduction**](##0.-introduction)
+- [**1. Installation**](##1.-installation-for-development)
+- [**2. Features**](##2.-features)
+- [**3. Contribution**](##3.-contribution)
 
 ---
 
@@ -130,9 +130,11 @@ and of course, many more columns and actual datas should be added.
 
 ---
 
-## 3. Contributing
+## 3. Contribution
 
 Contribution by anyone interested in this project is welcome. The contribution system will hopefully be provided soon.
+
+---
 
 **LICENSE**: CC7 YUMA SUMI
 
