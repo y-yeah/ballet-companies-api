@@ -13,9 +13,4 @@ module.exports = {
   express: {
     port: 3000,
   },
-
-  // timestamp format for our logs
-  // logger: {
-  //   format: "dddd MMMM Do YYYY, h:mm:ss a",
-  // },
 };

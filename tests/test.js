@@ -22,7 +22,7 @@ const tracker = mockKnex.getTracker();
 
 describe("balletCompanies", () => {
   const spyCompanies = [
-    { id: 0, name: "Random", country: "China", city: "Beijing" },
+    { id: "0", name: "Random", country: "China", city: "Beijing" },
   ];
   tracker.install();
   // describe("setup", () => {
@@ -62,7 +62,7 @@ describe("balletCompanies", () => {
     let params;
     before(() => {
       params = {
-        id: 1,
+        id: "1",
         name: "Sample company",
         country: "Japan",
         city: "Tokyo",
@@ -82,34 +82,49 @@ describe("balletCompanies", () => {
             country: params.country,
             city: params.city,
           });
-          expect(companies[0].id).to.be.a("number");
+          expect(Number(companies[0].id)).to.be.a("number");
         });
     });
   });
 
   describe("#delete", () => {
-    let params, paramsName;
+    let params, paramsId;
     before(() => {
       params = {
-        id: 1,
+        id: "1",
         name: "Sample company",
         country: "Japan",
         city: "Tokyo",
       };
-      paramsName = { name: "Sample company" };
+      paramsId = { id: "1" };
       spyCompanies.push(params);
-    });
-    it("should be able to delete a company", () => {
       db()
         .balletCompanies.add(params)
         .then((companies) => {
-          expect(companies[0]).not.to.be.undefined;
+          expect(companies[1]).not.to.be.undefined;
           spyCompanies.pop();
           return companies;
-        })
-        .delete(paramsName)
+        });
+    });
+    it("should be able to delete a company", () => {
+      db()
+        .balletCompanies.delete(paramsId)
         .then((companies) => {
-          expect(companies[0]).to.be.undefined;
+          expect(companies[1]).to.be.undefined;
+        });
+    });
+  });
+
+  describe("#modify", () => {
+    let modifiedParams;
+    before(() => {
+      modifiedParams = { id: "0", toBe: { city: "Osaka" } };
+    });
+    it("should be able to modify information of the company", () => {
+      db()
+        .balletCompanies.modify(modifiedParams)
+        .then((modified) => {
+          expect(modified[0].city).to.equal("Osaka");
         });
     });
   });

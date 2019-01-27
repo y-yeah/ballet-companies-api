@@ -15,7 +15,7 @@
   },
   "repository": "https://github.com/y-yeah/ballet-companies-api.git",
   "author": "Yuma Sumi <rbly.776324.yuma66krayt@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "CC7 Yuma Sumi",
   "dependencies": {
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
