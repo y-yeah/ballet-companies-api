@@ -19,17 +19,7 @@ module.exports = (knex, BalletCompany) => {
         country: params.country,
         city: params.city,
       })
-      .then(() => {
-        return (
-          knex("balletCompanies")
-            // .where({
-            //   name: params.name,
-            //   country: params.country,
-            //   city: params.city,
-            // })
-            .select()
-        );
-      })
+      .select()
       .then((balletCompanies) => {
         return balletCompanies.map((company) => new BalletCompany(company));
       })

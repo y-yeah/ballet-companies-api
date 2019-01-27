@@ -26,6 +26,7 @@ module.exports = (knex) => {
     selectAll: require("./selectAll")(knex, BalletCompany),
     selectByCountry: require("./selectByCountry")(knex, BalletCompany),
     add: require("./add")(knex, BalletCompany),
+    delete: require("./delete")(knex, BalletCompany),
     // list: require("./list")(knex, BalletCompany),
   };
 };
