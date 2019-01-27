@@ -1,8 +1,6 @@
 const { expect } = require("chai");
 const Knex = require("knex");
 const mockKnex = require("mock-knex");
-// const config = require("../config");
-// const sinon = require("sinon");
 
 const knex = Knex({
   client: "pg",
