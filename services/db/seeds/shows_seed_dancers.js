@@ -17,7 +17,7 @@ exports.seed = (knex, Promise) => {
           last_name: "Bolle",
           company_name: "American Ballet Theater",
           gender: "M",
-          nationality: "ITA",
+          nationality: "Italy",
         },
         {
           first_name: "Isabella",
@@ -38,7 +38,7 @@ exports.seed = (knex, Promise) => {
           last_name: "Cornejo",
           company_name: "American Ballet Theater",
           gender: "M",
-          nationality: "ARG",
+          nationality: "Argentine",
         },
         {
           first_name: "David",
@@ -59,7 +59,7 @@ exports.seed = (knex, Promise) => {
           last_name: "Lendorf",
           company_name: "American Ballet Theater",
           gender: "M",
-          nationality: "DNK",
+          nationality: "Denmark",
         },
         {
           first_name: "Gillian",
@@ -73,21 +73,21 @@ exports.seed = (knex, Promise) => {
           last_name: "Seo",
           company_name: "American Ballet Theater",
           gender: "F",
-          nationality: "KOR",
+          nationality: "South Korea",
         },
         {
           first_name: "Christine",
           last_name: "Shevchenko",
           company_name: "American Ballet Theater",
           gender: "F",
-          nationality: "UKR",
+          nationality: "Ukraine",
         },
         {
           first_name: "Daniil",
           last_name: "Simkin",
           company_name: "American Ballet Theater",
           gender: "M",
-          nationality: "RUS",
+          nationality: "Russia",
         },
         {
           first_name: "Cory",

@@ -15,7 +15,7 @@ module.exports = {
   },
 
   // timestamp format for our logs
-  logger: {
-    format: "dddd MMMM Do YYYY, h:mm:ss a",
-  },
+  // logger: {
+  //   format: "dddd MMMM Do YYYY, h:mm:ss a",
+  // },
 };

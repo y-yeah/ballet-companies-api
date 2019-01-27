@@ -13,6 +13,7 @@ class Dancer {
 module.exports = (knex) => {
   return {
     selectAll: require("./selectAll")(knex, Dancer),
+    selectByCompany: require("./selectByCompany")(knex, Dancer),
     add: require("./add")(knex, Dancer),
     // selectByCompany: require("./selectByCompany")(knex, Dancer),
   };

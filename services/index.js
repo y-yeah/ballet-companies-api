@@ -25,7 +25,9 @@ const schema = buildSchema(`
   }
   type Query {
     BalletCompanies: [BalletCompany]
+    balletCompaniesByCountry(country: String): [BalletCompany]
     Dancers: [Dancer]
+    dancersByCompany(company: String): [Dancer]
   }
   type Mutation {
     addBalletCompany(name: String, country: String, city: String): [BalletCompany]
@@ -37,15 +39,19 @@ const root = {
   BalletCompanies: () => {
     return db.balletCompanies.selectAll();
   },
-  addBalletCompany: (req) => {
-    console.log(req);
-    return db.balletCompanies.add(req);
+  balletCompaniesByCountry: (req) => {
+    return db.balletCompanies.selectByCountry(req);
   },
   Dancers: () => {
     return db.dancers.selectAll();
   },
+  dancersByCompany: (req) => {
+    return db.dancers.selectByCompany(req);
+  },
+  addBalletCompany: (req) => {
+    return db.balletCompanies.add(req);
+  },
   addDancers: (req) => {
-    console.log(req);
     return db.dancers.add(req);
   },
 };

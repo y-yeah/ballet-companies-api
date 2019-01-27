@@ -1,4 +1,4 @@
-exports.up = function(knex, Promise) {
+exports.up = (knex, Promise) => {
   return knex.schema.createTable("dancers", (t) => {
     t.increments().index();
     t.string("first_name", 20)
@@ -22,6 +22,6 @@ exports.up = function(knex, Promise) {
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = (knex, Promise) => {
   return knex.schema.dropTable("dancers");
 };

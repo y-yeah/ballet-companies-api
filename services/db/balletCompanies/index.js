@@ -9,8 +9,8 @@ class BalletCompany {
     this.country = dbBalletCompany.country;
     this.city = dbBalletCompany.city;
     // TODO: only dancers in this company
-    // this.dancers = dbDancers.selectByCompany(this.name);
-    // this.dancers = db.dancers.selectAll();
+    // this.dancers = db.dancers.selectByCompany(this.name);
+    this.dancers = [];
   }
   //   serialize() {
   //     return {
@@ -24,6 +24,7 @@ class BalletCompany {
 module.exports = (knex) => {
   return {
     selectAll: require("./selectAll")(knex, BalletCompany),
+    selectByCountry: require("./selectByCountry")(knex, BalletCompany),
     add: require("./add")(knex, BalletCompany),
     // list: require("./list")(knex, BalletCompany),
   };
