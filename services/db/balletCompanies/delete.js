@@ -1,7 +1,7 @@
 module.exports = (knex, BalletCompany) => {
   return (params) => {
     return knex("balletCompanies")
-      .where("name", params.name)
+      .where("id", params.id)
       .del()
       .then(() => {
         return knex("balletCompanies").select();

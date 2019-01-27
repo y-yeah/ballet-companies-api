@@ -2,7 +2,7 @@ module.exports = (knex, BalletCompany) => {
   return (params) => {
     return (
       knex("balletCompanies")
-        .where("name", params.name)
+        .where("id", params.id)
         //   .update(params.toBe)
         .then((companies) => {
           companies.forEach((company) => {
