@@ -24,11 +24,11 @@ The motivation of creating this is to hope to visualize gender and nationality e
 To set up this API, I used the frameworks and libraries such as followings.
 
 <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" alt="node.js" width="100px">
-<img src="https://www.clipartmax.com/png/small/33-338445_open-source-vector-images-postgresql-logo.png" alt="PostgreSQL" width="100px" float: left>
-<img src="https://montykamath.files.wordpress.com/2018/02/graphql.png" alt="GraphQL" width="100px" float: left>
-<img src="https://knexjs.org/assets/images/knex.png" alt="Knex" width="100px" float: left>
+<img src="https://www.clipartmax.com/png/small/33-338445_open-source-vector-images-postgresql-logo.png" alt="PostgreSQL" width="100px">
+<img src="https://montykamath.files.wordpress.com/2018/02/graphql.png" alt="GraphQL" width="100px">
+<img src="https://knexjs.org/assets/images/knex.png" alt="Knex" width="100px">
 
-<p clear: left>Currently this API is at the experimental stage.</p>
+Currently this API is at the experimental stage.
 
 ---
 
