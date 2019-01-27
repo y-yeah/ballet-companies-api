@@ -4,21 +4,21 @@ const { buildSchema } = require("graphql");
 // The data below is mocked.
 const config = require("../config");
 const db = require("./db")(config.db);
-const knex = require("knex")(config.db);
+// const knex = require("knex")(config.db);
 
 // The schema should model the full data object available.
 const schema = buildSchema(`
   type Dancer {
     id: String!
-    firstName: String
-    lastName: String
+    firstName: String!
+    lastName: String!
     companyName: String
     nationality: String
     gender: String
   }
   type BalletCompany {
     id: String!
-    name: String
+    name: String!
     country: String
     city: String
     dancers: [Dancer]

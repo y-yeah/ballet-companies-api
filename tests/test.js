@@ -22,7 +22,7 @@ const tracker = mockKnex.getTracker();
 
 describe("balletCompanies", () => {
   const balletCompanies = [
-    { id: "001", name: "Random", country: "China", city: "Beijing" },
+    { id: 0, name: "Random", country: "China", city: "Beijing" },
   ];
   tracker.install();
   // describe("setup", () => {
@@ -53,20 +53,24 @@ describe("balletCompanies", () => {
       db()
         .balletCompanies.selectByCountry({ country: "China" })
         .then((selected) => {
-          console.log(selected);
-          // sinon.assert.calledOnce(stub);
           expect(selected[0].country).to.equal("China");
         });
     });
   });
 
   describe("#add", () => {
-    let params = { id: 0, name: "", country: "", city: "" };
-
+    let params;
     before(() => {
-      params.name = "Sample company";
-      params.country = "Japan";
-      params.city = "Tokyo";
+      params = {
+        id: 1,
+        name: "Sample company",
+        country: "Japan",
+        city: "Tokyo",
+      };
+      balletCompanies.push(params);
+    });
+    after(() => {
+      balletCompanies.pop();
     });
 
     it("should be able to add a company", () => {
@@ -87,7 +91,7 @@ describe("balletCompanies", () => {
 describe("dancers", () => {
   const dancers = [
     {
-      id: "001",
+      id: 0,
       first_name: "Ran",
       last_name: "dom",
       company_name: "Spy company",
@@ -115,14 +119,55 @@ describe("dancers", () => {
       db()
         .dancers.selectAll()
         .then((selected) => {
-          console.log(selected);
           expect(selected[0].id).to.equal(dancers[0].id);
-          expect(selected[0].first_name).to.equal(dancers[0].first_name);
+          expect(selected[0].firstName).to.equal(dancers[0].first_name);
         });
     });
   });
 
   describe("#selectByCompany", () => {
-    it("should display all the dancers of the specific company", () => {});
+    it("should display all the dancers of the specific company", () => {
+      db()
+        .dancers.selectByCompany({ company: "American Ballet Theater" })
+        .then((selected) => {
+          expect(selected[0]).to.equal(undefined);
+        });
+      db()
+        .dancers.selectByCompany({ company: "Spy company" })
+        .then((selected) => {
+          expect(selected[0].firstName).to.equal(dancers[0].first_name);
+        });
+    });
+  });
+
+  describe("#add", () => {
+    let params;
+    before(() => {
+      params = {
+        id: 1,
+        first_name: "Mr.",
+        last_name: "Batman",
+        nationality: "Gotham",
+        gender: "M",
+      };
+      dancers.push(params);
+    });
+    after(() => {
+      dancers.pop();
+    });
+
+    it("should be able to add a company", () => {
+      db()
+        .dancers.add(params)
+        .then((dancers) => {
+          expect(dancers[dancers.length - 1]).to.include({
+            firstName: params.first_name,
+            lastName: params.last_name,
+            nationality: params.nationality,
+            gender: params.gender,
+          });
+          expect(dancers[0].id).to.be.a("number");
+        });
+    });
   });
 });
