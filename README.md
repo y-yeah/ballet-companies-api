@@ -105,7 +105,9 @@ localhost:4000/graphQL
 - the ballet companies by a counry
 - all the dancers
 - the dancers by a company
-  > Mutation
+
+> Mutation
+
 - add a ballet company
 - delete a ballet company
 - modify a ballet company
@@ -118,7 +120,9 @@ localhost:4000/graphQL
 - the ballet companies by a city
 - the dancers by nationality
 - the dancers by gender
-  > Mutation
+
+> Mutation
+
 - delete a dancer
 - modify a dancer
 
