@@ -21,7 +21,7 @@ const db = () => {
 const tracker = mockKnex.getTracker();
 
 describe("balletCompanies", () => {
-  const balletCompanies = [
+  const spyCompanies = [
     { id: 0, name: "Random", country: "China", city: "Beijing" },
   ];
   tracker.install();
@@ -33,7 +33,7 @@ describe("balletCompanies", () => {
   // });
   beforeEach(() => {
     tracker.on("query", (query) => {
-      query.response(balletCompanies);
+      query.response(spyCompanies);
     });
   });
 
@@ -42,8 +42,8 @@ describe("balletCompanies", () => {
       db()
         .balletCompanies.selectAll()
         .then((selected) => {
-          expect(selected[0].id).to.equal(balletCompanies[0].id);
-          expect(selected[0].name).to.equal(balletCompanies[0].name);
+          expect(selected[0].id).to.equal(spyCompanies[0].id);
+          expect(selected[0].name).to.equal(spyCompanies[0].name);
         });
     });
   });
@@ -67,10 +67,10 @@ describe("balletCompanies", () => {
         country: "Japan",
         city: "Tokyo",
       };
-      balletCompanies.push(params);
+      spyCompanies.push(params);
     });
     after(() => {
-      balletCompanies.pop();
+      spyCompanies.pop();
     });
 
     it("should be able to add a company", () => {
@@ -86,10 +86,37 @@ describe("balletCompanies", () => {
         });
     });
   });
+
+  describe("#delete", () => {
+    let params, paramsName;
+    before(() => {
+      params = {
+        id: 1,
+        name: "Sample company",
+        country: "Japan",
+        city: "Tokyo",
+      };
+      paramsName = { name: "Sample company" };
+      spyCompanies.push(params);
+    });
+    it("should be able to delete a company", () => {
+      db()
+        .balletCompanies.add(params)
+        .then((companies) => {
+          expect(companies[0]).not.to.be.undefined;
+          spyCompanies.pop();
+          return companies;
+        })
+        .delete(paramsName)
+        .then((companies) => {
+          expect(companies[0]).to.be.undefined;
+        });
+    });
+  });
 });
 
 describe("dancers", () => {
-  const dancers = [
+  const spyDancers = [
     {
       id: 0,
       first_name: "Ran",
@@ -103,7 +130,7 @@ describe("dancers", () => {
 
   beforeEach(() => {
     tracker.on("query", (query) => {
-      query.response(dancers);
+      query.response(spyDancers);
     });
   });
 
@@ -119,8 +146,8 @@ describe("dancers", () => {
       db()
         .dancers.selectAll()
         .then((selected) => {
-          expect(selected[0].id).to.equal(dancers[0].id);
-          expect(selected[0].firstName).to.equal(dancers[0].first_name);
+          expect(selected[0].id).to.equal(spyDancers[0].id);
+          expect(selected[0].firstName).to.equal(spyDancers[0].first_name);
         });
     });
   });
@@ -135,7 +162,7 @@ describe("dancers", () => {
       db()
         .dancers.selectByCompany({ company: "Spy company" })
         .then((selected) => {
-          expect(selected[0].firstName).to.equal(dancers[0].first_name);
+          expect(selected[0].firstName).to.equal(spyDancers[0].first_name);
         });
     });
   });
@@ -150,10 +177,10 @@ describe("dancers", () => {
         nationality: "Gotham",
         gender: "M",
       };
-      dancers.push(params);
+      spyDancers.push(params);
     });
     after(() => {
-      dancers.pop();
+      spyDancers.pop();
     });
 
     it("should be able to add a company", () => {
