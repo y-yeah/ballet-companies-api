@@ -18,8 +18,8 @@
 
 ## 0. Introduction
 
-The Ballet API stores information of the ballet companies and the dancers belonging to them (no private information accepted).
-The motivation of creating this is to hope to visualize gender and nationality equality in the ballet scene (if I can keep implementing this).
+The Ballet API stores information of the ballet companies and the dancers in those companies (no private information accepted).
+The motivation of creating this is to hope to visualize gender and nationality equality in the ballet scene.
 
 To set up this API, I used the frameworks and libraries such as followings.
 
@@ -54,7 +54,7 @@ git clone https://github.com/<Your GitHub Hundle>/ballet-companies-api
 
 ### **Step3**: Create a local database
 
-> Make sure you have installed [PostgreSQL](https://www.postgresql.org/download/), and run PostgreSQl.
+> Make sure you have installed [PostgreSQL](https://www.postgresql.org/download/), and run PostgreSQL.
 
 ```
 psql
