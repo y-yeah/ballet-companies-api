@@ -9,7 +9,7 @@
 
 # Table of Contents
 
-- [**0. Introduction**](#0.-introduction)
+- [**0. Introduction**](#0-introduction)
 - [**1. Installation**](#1-installation-for-development)
 - [**2. Features**](#2-features)
 - [**3. Contribution**](#3-contribution)
